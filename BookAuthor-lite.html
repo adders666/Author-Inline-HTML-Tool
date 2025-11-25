@@ -10,6 +10,17 @@
 </head>
 <body>
     <div id="sidebar">
+        <div class="dropdown">
+            <button class="dropdown-btn" onclick="toggleDropdown(event)">File ▾</button>
+            <div class="dropdown-content">
+                <a href="#" onclick="saveState()">💾 Save Progress</a>
+                <a href="#" onclick="exportPdf()">🖨️ Print / Export PDF</a>
+                <a href="#" onclick="triggerImportState()">⬆️ Import State (JSON)</a>
+                <a href="#" onclick="clearState()" class="danger-link">🗑️ Clear Book</a>
+            </div>
+            <input type="file" id="state-file-input" accept=".json" style="display:none" onchange="importStateFromFile(event)">
+        </div>
+
         <h2>Book Authoring Tool Lite</h2>
 
         <div class="tabs">

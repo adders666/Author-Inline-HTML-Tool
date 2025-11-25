@@ -22,6 +22,22 @@ let saveTimeout;
 let previewTimeout;
 const tokenCache = new Map();
 
+function toggleDropdown(event) {
+    event.stopPropagation();
+    const dropdown = event.currentTarget.closest('.dropdown');
+    if (!dropdown) return;
+    document.querySelectorAll('.dropdown.open').forEach(d => {
+        if (d !== dropdown) d.classList.remove('open');
+    });
+    dropdown.classList.toggle('open');
+}
+
+document.addEventListener('click', (event) => {
+    if (!event.target.closest('.dropdown')) {
+        document.querySelectorAll('.dropdown.open').forEach(d => d.classList.remove('open'));
+    }
+});
+
 function saveState() {
     try {
         if (currentEditingIndex !== null) updateCurrentSectionInMemory();
