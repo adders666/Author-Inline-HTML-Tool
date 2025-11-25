@@ -6,7 +6,7 @@ This project is the result. It is not just code, it is the altar I built to free
 
 ## Example: Why Regular Tools Failed
 Here is a single broadsheet page from the project. 
-[![Broadsheet preview](docs/example-broadsheet.png)](docs/example-broadsheet.pdf)
+[![Broadsheet preview](example-broadsheet.png)](example-broadsheet.pdf)
 Notice:
 • 	Variable columns, not a fixed template but a living archive
 • 	Ads woven into the narrative, positioned differently each issue, breaking the illusion of copy paste
