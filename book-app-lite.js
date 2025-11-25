@@ -22,6 +22,10 @@ let saveTimeout;
 let previewTimeout;
 const tokenCache = new Map();
 
+function isElectron() {
+    return typeof window !== 'undefined' && !!window.electronAPI;
+}
+
 function toggleDropdown(event) {
     event.stopPropagation();
     const dropdown = event.currentTarget.closest('.dropdown');
@@ -563,6 +567,65 @@ function updatePreview() {
         paginateStory();
     } else {
         paginateStory();
+    }
+}
+
+function triggerImportState() {
+    if (isElectron() && window.electronAPI?.loadState) {
+        window.electronAPI.loadState().then(res => {
+            if (res?.ok && res.data) {
+                localStorage.setItem('bookAuthorToolState', res.data);
+                loadState();
+                alert(`State loaded${res.path ? ' from ' + res.path : ''}`);
+            } else if (res?.message) {
+                alert(res.message);
+            }
+        }).catch(err => {
+            console.error('Electron load failed', err);
+            alert('Load failed: ' + err.message);
+        });
+    } else {
+        const input = document.getElementById('state-file-input');
+        if (input) input.click();
+    }
+}
+
+function importStateFromFile(event) {
+    const file = event.target.files && event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+        try {
+            const text = e.target.result;
+            const parsed = JSON.parse(text);
+            localStorage.setItem('bookAuthorToolState', JSON.stringify(parsed));
+            loadState();
+            alert('State imported!');
+        } catch (err) {
+            console.error('Import failed', err);
+            alert('Import failed: ' + err.message);
+        } finally {
+            event.target.value = '';
+        }
+    };
+    reader.readAsText(file);
+}
+
+async function exportPdf() {
+    try {
+        if (activeTab !== TAB_NAMES.STORY) {
+            paginateStory();
+        }
+        if (isElectron() && window.electronAPI?.exportPdf) {
+            const res = await window.electronAPI.exportPdf();
+            if (!res?.ok) throw new Error(res?.message || 'Export failed');
+            alert(`PDF exported${res.path ? ' to ' + res.path : ''}`);
+        } else {
+            window.print();
+        }
+    } catch (e) {
+        console.error('PDF export failed', e);
+        alert('PDF export failed: ' + e.message);
     }
 }
 

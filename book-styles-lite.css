@@ -42,6 +42,67 @@ h2 {
     margin-bottom: 15px;
 }
 
+.dropdown {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.dropdown-btn {
+    width: 100%;
+    text-align: left;
+    background: #333;
+    color: #eee;
+    border: 1px solid var(--border-gray);
+    padding: 10px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.dropdown-btn:focus {
+    outline: 2px solid var(--accent-gold);
+    outline-offset: 1px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #2a2a2a;
+    border: 1px solid var(--border-gray);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    flex-direction: column;
+    z-index: 50;
+}
+
+.dropdown.open .dropdown-content {
+    display: flex;
+}
+
+.dropdown-content a {
+    padding: 10px 12px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #333;
+    color: #eee;
+}
+
+.dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content a:hover {
+    background: #333;
+}
+
+.danger-link {
+    color: #f07474;
+}
+
 .tab {
     flex: 1;
     padding: 10px;
@@ -226,6 +287,48 @@ button:hover { background: #fff; }
     height: auto;
     min-height: 9in;
     overflow: visible;
+}
+
+@media print {
+    @page {
+        size: 6in 9in;
+        margin: 0;
+    }
+    body {
+        background: white;
+    }
+    #sidebar {
+        display: none;
+    }
+    #preview-area {
+        display: block;
+        padding: 0;
+        background: white;
+        overflow: visible;
+    }
+    .book-container {
+        display: block;
+        width: 6in;
+        padding: 0;
+        gap: 0;
+        margin: 0 auto;
+    }
+    .page {
+        margin: 0;
+        box-shadow: none;
+        outline: none;
+        page-break-after: always;
+        display: block;
+        height: 9in;
+        min-height: 9in;
+        width: 6in;
+        overflow: hidden;
+        position: static;
+        padding: 0.6in 0.45in;
+    }
+    .page:last-child {
+        page-break-after: auto;
+    }
 }
 
 .chapter-prose h1 {
