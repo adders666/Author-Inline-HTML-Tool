@@ -1,0 +1,15 @@
+{
+  "name": "book-authoring-tool-lite",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "electron:start": "electron .",
+    "electron:build": "electron-builder"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^29.3.0",
+    "electron-builder": "^24.9.1"
+  }
+}

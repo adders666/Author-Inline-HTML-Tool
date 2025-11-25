@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Authoring Tool Lite</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=EB+Garamond:wght@400;600;800&family=Inter:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="book-styles-lite.css">
+</head>
+<body>
+    <div id="sidebar">
+        <h2>Book Authoring Tool Lite</h2>
+
+        <div class="tabs">
+            <button class="tab active" data-tab="chapter" onclick="switchTab('chapter')">📖 Chapter</button>
+            <button class="tab" data-tab="work" onclick="switchTab('work')">✒️ Work</button>
+            <button class="tab" data-tab="html" onclick="switchTab('html')">🌐 HTML Import</button>
+            <button class="tab story-tab" data-tab="story" onclick="switchTab('story')">📚 Story Overview</button>
+        </div>
+        <div class="editing-bar">
+            <div id="editing-notice" class="editing-notice"></div>
+            <button id="apply-edit-btn" class="apply-edit-btn" onclick="applyCurrentEdit()" disabled>Apply Edit</button>
+        </div>
+
+        <div id="tab-chapter" class="tab-content active">
+            <h3>Chapter Details</h3>
+            <label>Chapter Title:</label>
+            <input type="text" id="ch-title" placeholder="Chapter One">
+            <label class="inline-row"><input type="checkbox" id="ch-preserve" checked> Preserve line breaks</label>
+            <label>Chapter Text (plain prose):</label>
+            <textarea id="ch-body" rows="12" placeholder="Paragraphs separated by blank lines will be preserved."></textarea>
+            <h3>Footnotes</h3>
+            <div id="footnotes-container"></div>
+            <button type="button" onclick="addFootnoteField()">➕ Add Footnote</button>
+            <button onclick="addChapter()">📖 Add Chapter to Story</button>
+        </div>
+
+        <div id="tab-work" class="tab-content">
+            <h3>Minor/Major Work</h3>
+            <label>Work Title:</label>
+            <input type="text" id="work-title" placeholder="A Minor Work">
+            <label>Font:</label>
+            <select id="work-font">
+                <option value="'Times New Roman', serif">Times New Roman</option>
+                <option value="'EB Garamond', serif">EB Garamond</option>
+                <option value="'Inter', sans-serif">Inter</option>
+                <option value="'Playfair Display', serif">Playfair Display</option>
+                <option value="'Courier Prime', monospace">Courier Prime</option>
+            </select>
+            <label>Font Size (pt):</label>
+            <input type="number" id="work-size" min="8" max="36" value="14">
+            <label>Letter Spacing (em):</label>
+            <input type="number" id="work-spacing" step="0.05" min="0" max="1" value="0.05">
+            <label>Alignment:</label>
+            <select id="work-align">
+                <option value="left">Left</option>
+                <option value="center">Center</option>
+                <option value="right">Right</option>
+                <option value="justify">Justify</option>
+            </select>
+            <label>Text Body:</label>
+            <textarea id="work-body" rows="10" placeholder="Enter the work text here..."></textarea>
+            <button onclick="addWork()">✒️ Add Work to Story</button>
+        </div>
+
+        <div id="tab-html" class="tab-content">
+            <h3>HTML Import</h3>
+            <label>Snippet Title:</label>
+            <input type="text" id="html-import-title" placeholder="HTML Snippet">
+            <label>Full HTML (paste here):</label>
+            <textarea id="html-import-raw" rows="10" placeholder="Paste full HTML with head/body..."></textarea>
+            <div class="inline-row">
+                <label><input type="checkbox" id="html-remove-scripts" checked> Remove scripts/styles/meta</label>
+            </div>
+            <div class="inline-row">
+                <label><input type="checkbox" id="html-flatten"> Flatten whitespace</label>
+            </div>
+            <button onclick="addHtmlImport()">🌐 Add HTML Snippet to Story</button>
+        </div>
+
+        <div id="tab-story" class="tab-content">
+            <h3>Story Overview</h3>
+            <p>Reorder or edit your sections, then view the paginated story.</p>
+            <div class="section-list" id="section-list"></div>
+        </div>
+    </div>
+
+    <div id="preview-area">
+        <div id="book-preview" class="book-container"></div>
+    </div>
+
+    <script src="book-app-lite.js"></script>
+</body>
+</html>
