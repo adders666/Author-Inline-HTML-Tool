@@ -38,3 +38,9 @@ This project is licensed under the MIT License — see the LICENSE file for deta
 
 **Note:** The tool is free to use for personal and indie projects.  
 If you are a publisher or plan to use it commercially, please reach out to me first.
+
+## About the Author
+
+This tool grew out of my work writing surreal and quietly unsettling fiction that blends dark humour, cosmic melancholy, and the strange textures of everyday life.
+If you’d like to explore the thin places between realities. visit my author page:
+[check out my bookshelf](https://www.amazon.co.uk/stores/Adam-Joseph-Giles/author/B0F5MF7DTW?ref=ap_rdr&isDramIntegrated=true&shoppingPortalEnabled=true)
