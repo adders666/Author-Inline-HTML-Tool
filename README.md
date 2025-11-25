@@ -23,4 +23,8 @@ This is the pared-down version with Chapters, Works, and HTML Import (no newspap
 - `main.js`, `preload.js`, `package.json`: Electron entrypoint and scripts for the lite app
 
 ## License
-MIT (see ../LICENSE).
+
+This project is licensed under the MIT License — see the LICENSE file for details.
+
+**Note:** The tool is free to use for personal and indie projects.  
+If you are a publisher or plan to use it commercially, please reach out to me first.

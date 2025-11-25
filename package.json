@@ -1,6 +1,9 @@
 {
   "name": "book-authoring-tool-lite",
   "version": "1.0.0",
+  "description": "Lite version of the Book Authoring Tool (Chapters, Works, HTML import)",
+  "author": "",
+  "license": "MIT",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -9,7 +12,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "electron": "^29.3.0",
+    "electron": "29.3.0",
     "electron-builder": "^24.9.1"
   }
 }
