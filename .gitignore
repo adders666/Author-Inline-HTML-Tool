@@ -1,0 +1,14 @@
+# Ignore build output
+dist/
+
+# Ignore Node dependencies
+node_modules/
+
+# Optional: OS and editor junk
+.DS_Store
+Thumbs.db
+
+# Optional: logs and lockfiles
+npm-debug.log*
+yarn-debug.log*
+package-lock.json
