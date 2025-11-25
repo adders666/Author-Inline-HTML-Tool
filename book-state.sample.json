@@ -1,0 +1,34 @@
+{
+  "sections": [
+    {
+      "type": "chapter",
+      "title": "Chapter One",
+      "body": "The metronome ticked in the dim study, keeping time with a heart that never seemed to sleep.\n\nHe ran a thumb along the cracked spine of a book he'd read a dozen times, its margins crowded with notes that only half made sense now.\n\nOutside, the rain pressed its face against the glass. Inside, the work pressed closer.",
+      "preserveBreaks": true,
+      "footnotes": [
+        "The metronome was a gift from a friend who no longer wrote letters.",
+        "The book was borrowed, never returned."
+      ]
+    },
+    {
+      "type": "work",
+      "title": "A Minor Interlude",
+      "body": "We promised to write more often,\nbut the ink dried quicker than resolve.\nStill, we keep the paper near the lamp,\nand the lamp lit.",
+      "font": "'EB Garamond', serif",
+      "size": 14,
+      "spacing": 0.05,
+      "align": "left"
+    },
+    {
+      "type": "html",
+      "title": "Inline HTML Snippet",
+      "raw": "<div class=\"callout\"><h2>Signal Lost</h2><p>We traced the line to its end and found only silence.</p></div>",
+      "content": "<div class=\"callout\"><h2>Signal Lost</h2><p>We traced the line to its end and found only silence.</p></div>",
+      "removeScripts": true,
+      "flattenWhitespace": false
+    }
+  ],
+  "activeTab": "story",
+  "volumeCounters": {},
+  "volumeBases": {}
+}
